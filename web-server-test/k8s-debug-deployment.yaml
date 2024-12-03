@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-debug
+  template:
+    metadata:
+      labels:
+        app: k8s-debug
+    spec:
+      containers:
+      - name: k8s-debug
+        image: registry.ocp.local:8443/init/mirror/joshua/k8s-debug:1.0

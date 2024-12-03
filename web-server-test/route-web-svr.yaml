@@ -5,14 +5,13 @@ metadata:
     haproxy.router.openshift.io/timeout: 5m
   labels:
     app: webtest
-  name: console
+  name: webtest
 spec:
   host: webtest.apps.prod.ocp.local
-  port:
-    targetPort: http
+  #port:
+  #  targetPort: http
   tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: reencrypt
+    termination: edge
   to:
     kind: Service
     name: nginx-service
